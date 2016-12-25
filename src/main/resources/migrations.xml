@@ -1,0 +1,35 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="leon (generated)" id="1482648583752-1">
+        <createTable tableName="ROLE">
+            <column autoIncrement="true" name="ROLE_ID" type="INT(10)">
+                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_26"/>
+            </column>
+            <column name="ROLE_NAME" type="CHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="leon (generated)" id="1482648583752-2">
+        <createTable tableName="USER">
+            <column autoIncrement="true" name="ID" type="INT(10)">
+                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_2"/>
+            </column>
+            <column name="NAME" type="CHAR(20)"/>
+            <column name="PASSWORD" type="CHAR(16)"/>
+            <column name="ROLE" type="INT(10)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="leon (generated)" id="1482648583752-3">
+        <createIndex indexName="USER_ROLE_ROLE_ID_FK_INDEX_2" tableName="USER">
+            <column name="ROLE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="leon (generated)" id="1482648583752-4">
+        <addForeignKeyConstraint baseColumnNames="ROLE" baseTableName="USER"
+                                 constraintName="USER_ROLE_ROLE_ID_FK" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ROLE_ID" referencedTableName="ROLE"/>
+    </changeSet>
+</databaseChangeLog>

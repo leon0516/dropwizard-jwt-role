@@ -24,6 +24,7 @@ import javax.ws.rs.core.MediaType;
 import io.dropwizard.auth.Auth;
 import io.dropwizard.hibernate.UnitOfWork;
 import pub.sharecode.basicapi.core.AuthUser;
+import pub.sharecode.basicapi.core.Role;
 import pub.sharecode.basicapi.core.Token;
 import pub.sharecode.basicapi.core.User;
 import pub.sharecode.basicapi.db.UserDao;
@@ -71,11 +72,7 @@ public class UserResource {
     public Optional<Token> login(@QueryParam("id") Long id, @QueryParam("password") String password) {
         Optional<User> user = userDao.getById(id);
         if (!user.isPresent()) {
-            try {
-                throw new NotFoundException("NO this user");
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            throw new NotFoundException("NO this user");
         }
         final JwtClaims claims = new JwtClaims();
         claims.setExpirationTimeMinutesInTheFuture(20);
@@ -109,5 +106,16 @@ public class UserResource {
     @RolesAllowed("SUPER_USER")
     public Map<String, Object> gettest() {
         return ImmutableMap.<String, Object>of("ok", true);
+    }
+
+    @GET
+    @Path("register")
+    @UnitOfWork
+    public User register(@QueryParam("name") String name, @QueryParam("password") String password) {
+        Role r = new Role();
+        r.setRoleId(1);
+        r.setRoleName("SUPER_USER");
+        User user = new User(name, password, r);
+        return userDao.createUser(user);
     }
 }

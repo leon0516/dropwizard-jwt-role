@@ -6,6 +6,18 @@
 
 这只是一个demo
 
+导入数据库结构
+
+`java -jar target/basicapi-0.0.1.jar db migrate basicapi.yml`
+
+启动服务
+
+`java -jar target/basicapi-0.0.1.jar server basicapi.yml`
+
+
+第一次启动只有数据表,没有数据,需要自己先注册一个账号
+
+
 database table
 <table border="1" style="border-collapse:collapse">
 <tr><th>ID</th><th>NAME</th><th>PASSWORD</th><th>ROLE</th></tr>

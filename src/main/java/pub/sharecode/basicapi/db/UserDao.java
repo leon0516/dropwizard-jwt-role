@@ -35,4 +35,8 @@ public class UserDao extends AbstractDAO<User> {
     public List<User> getAllUser() {
         return list(namedQuery("pub.sharecode.basicapi.core.User.findAll"));
     }
+
+    public User createUser(User u) {
+        return persist(u);
+    }
 }

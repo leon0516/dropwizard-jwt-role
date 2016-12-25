@@ -37,6 +37,17 @@
             <artifactId>jose4j</artifactId>
             <version>0.5.3</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.dropwizard/dropwizard-migrations -->
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-migrations</artifactId>
+            <version>${dropwizard.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-db</artifactId>
+            <version>${dropwizard.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

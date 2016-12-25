@@ -10,6 +10,7 @@ import io.dropwizard.auth.AuthDynamicFeature;
 import io.dropwizard.auth.AuthValueFactoryProvider;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.hibernate.HibernateBundle;
+import io.dropwizard.migrations.MigrationsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import pub.sharecode.basicapi.auth.jwt.JwtAuthFilter;
@@ -73,5 +74,11 @@ public class BasicApiApplication extends Application<BasicApiConfiguration> {
     @Override
     public void initialize(Bootstrap<BasicApiConfiguration> bootstrap) {
         bootstrap.addBundle(hibernate);
+        bootstrap.addBundle(new MigrationsBundle<BasicApiConfiguration>() {
+            @Override
+            public DataSourceFactory getDataSourceFactory(BasicApiConfiguration configuration) {
+                return configuration.getDataSourceFactory();
+            }
+        });
     }
 }

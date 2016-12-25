@@ -91,9 +91,6 @@
     <orderEntry type="library" name="Maven: org.eclipse.jetty.toolchain.setuid:jetty-setuid-java:1.0.3" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-auth:1.0.5" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-hibernate:1.0.5" level="project" />
-    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-db:1.0.5" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-jdbc:8.5.3" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-juli:8.5.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-hibernate5:2.7.8" level="project" />
     <orderEntry type="library" name="Maven: javax.transaction:jta:1.1" level="project" />
     <orderEntry type="library" name="Maven: org.jadira.usertype:usertype.core:5.0.0.GA" level="project" />
@@ -111,5 +108,11 @@
     <orderEntry type="library" name="Maven: com.h2database:h2:1.4.193" level="project" />
     <orderEntry type="library" name="Maven: org.bitbucket.b_c:jose4j:0.5.3" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.21" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-migrations:1.0.5" level="project" />
+    <orderEntry type="library" name="Maven: org.liquibase:liquibase-core:3.5.1" level="project" />
+    <orderEntry type="library" name="Maven: com.mattbertolini:liquibase-slf4j:2.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-db:1.0.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-jdbc:8.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-juli:8.5.3" level="project" />
   </component>
 </module>
