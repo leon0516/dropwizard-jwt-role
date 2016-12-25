@@ -5,6 +5,7 @@ import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.hibernate.HibernateBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import pub.sharecode.basicapi.core.Role;
 import pub.sharecode.basicapi.core.User;
 import pub.sharecode.basicapi.db.UserDao;
 import pub.sharecode.basicapi.resources.UserResource;
@@ -29,7 +30,8 @@ public class BasicApiApplication extends Application<BasicApiConfiguration> {
     }
 
     private final HibernateBundle<BasicApiConfiguration> hibernate = new HibernateBundle<BasicApiConfiguration>(
-            User.class) {
+            User.class, Role.class//TODO 需要注册 entity类,千万不要忘记
+    ) {
         @Override
         public DataSourceFactory getDataSourceFactory(BasicApiConfiguration configuration) {
             return configuration.getDataSourceFactory();

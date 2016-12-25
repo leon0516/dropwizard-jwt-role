@@ -2,13 +2,18 @@ package pub.sharecode.basicapi.core;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 /**
@@ -42,6 +47,17 @@ public class User {
     @JsonProperty
     @Column(name = "PASSWORD")
     private String password;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ROLE")
+    private Role role;
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     public long getId() {
         return id;
@@ -70,8 +86,9 @@ public class User {
     public User() {
     }
 
-    public User(String name, String password) {
+    public User(String name, String password, Role role) {
         this.name = name;
         this.password = password;
+        this.role = role;
     }
 }

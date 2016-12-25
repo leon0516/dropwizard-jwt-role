@@ -3,6 +3,10 @@ package pub.sharecode.basicapi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import java.io.UnsupportedEncodingException;
+
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -20,6 +24,18 @@ import io.dropwizard.db.DataSourceFactory;
  * @date: 2016-12-24 21:00
  */
 public class BasicApiConfiguration extends Configuration {
+    @NotEmpty
+    private String jwtTokenSecret = "dfwzsdzwh823zebdwdz772632gdsbd";
+
+    @JsonProperty("jwttoken")
+    public byte[] getJwtTokenSecret() throws UnsupportedEncodingException {
+        return jwtTokenSecret.getBytes("UTF-8");
+    }
+
+    public void setJwtTokenSecret(String jwtTokenSecret) {
+        this.jwtTokenSecret = jwtTokenSecret;
+    }
+
     public void setDatabase(DataSourceFactory database) {
         this.database = database;
     }
