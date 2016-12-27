@@ -1,4 +1,4 @@
-package pub.sharecode.basicapi.core;
+package pub.sharecode.basicapi.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

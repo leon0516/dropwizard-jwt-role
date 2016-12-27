@@ -23,9 +23,9 @@ import javax.ws.rs.core.MediaType;
 
 import io.dropwizard.auth.Auth;
 import io.dropwizard.hibernate.UnitOfWork;
+import pub.sharecode.basicapi.api.Token;
 import pub.sharecode.basicapi.core.AuthUser;
 import pub.sharecode.basicapi.core.Role;
-import pub.sharecode.basicapi.core.Token;
 import pub.sharecode.basicapi.core.User;
 import pub.sharecode.basicapi.db.UserDao;
 
@@ -113,8 +113,8 @@ public class UserResource {
     @UnitOfWork
     public User register(@QueryParam("name") String name, @QueryParam("password") String password) {
         Role r = new Role();
-        r.setRoleId(1);
-        r.setRoleName("SUPER_USER");
+        r.setRoleId(3L);
+        r.setRoleName("USER");
         User user = new User(name, password, r);
         return userDao.createUser(user);
     }
